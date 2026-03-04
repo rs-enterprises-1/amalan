@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Advance Receipt Template</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      margin: 0;
+      color: #1e40af;
+    }
+    .details {
+      margin: 20px 0;
+    }
+    .details table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .details td {
+      padding: 8px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .details td:first-child {
+      font-weight: bold;
+      width: 40%;
+    }
+    .payments {
+      margin: 20px 0;
+    }
+    .payments table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .payments th,
+    .payments td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #e5e7eb;
+    }
+    .payments th {
+      background: #f3f4f6;
+    }
+    .total {
+      margin-top: 20px;
+      padding: 15px;
+      background: #dbeafe;
+      border-radius: 8px;
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+    .total-row.final {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    @media print {
+      body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- This is a template file. Edit this file to customize your advance receipt layout. -->
+  <!-- Variables available: {{RECEIPT_NUMBER}}, {{VEHICLE_DETAILS}}, {{CUSTOMER_DETAILS}}, {{PAYMENTS_TABLE}}, {{TOTAL_ADVANCE}}, {{REMAINING_BALANCE}} -->
+  
+  <div class="header">
+    <h1>ADVANCE RECEIPT</h1>
+    <p>Receipt No: {{RECEIPT_NUMBER}}</p>
+  </div>
+  <div class="details">
+    <table>
+      {{VEHICLE_DETAILS}}
+      {{CUSTOMER_DETAILS}}
+    </table>
+  </div>
+  <div class="payments">
+    <h3>Advance Payments</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount (LKR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{PAYMENTS_TABLE}}
+      </tbody>
+    </table>
+  </div>
+  <div class="total">
+    <div class="total-row">
+      <span>Total Advance:</span>
+      <span style="color: #059669; font-weight: bold;">{{TOTAL_ADVANCE}}</span>
+    </div>
+    <div class="total-row final">
+      <span>Remaining Balance:</span>
+      <span>{{REMAINING_BALANCE}}</span>
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-200/60;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-slate-300;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-slate-900 text-white font-medium rounded-lg shadow-sm hover:bg-slate-800 transition-all duration-200 active:scale-95;
+  }
+  
+  .btn-primary:hover {
+    @apply shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-slate-700 font-medium rounded-lg shadow-sm border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 active:scale-95;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/20 focus:border-slate-900 transition-all duration-200 bg-white text-slate-900 placeholder-slate-400;
+    pointer-events: auto !important;
+    cursor: text !important;
+    position: relative;
+    z-index: 10;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  .input-field:focus {
+    @apply bg-white;
+    outline: none;
+    z-index: 11;
+  }
+
+  .input-field:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* Ensure labels don't block inputs */
+  .label {
+    pointer-events: none;
+  }
+
+  /* Ensure form containers don't block inputs */
+  form,
+  .space-y-6,
+  .space-y-4 {
+    position: relative;
+  }
+
+  /* Fix for inputs inside motion.div */
+  .motion-div input,
+  .motion-div select,
+  .motion-div textarea {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-2;
+  }
+  
+  .select-field {
+    @apply w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-900/20 focus:border-slate-900 transition-all duration-200 bg-white text-slate-900 cursor-pointer;
+  }
+  
+  .select-field:focus {
+    @apply bg-white;
+  }
+}
+
+/* Hide number input spinners (up/down arrows) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 1000px 100%;
+}
+
