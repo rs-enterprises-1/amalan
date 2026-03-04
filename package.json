@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    // OpenNext build: runs Next.js build and produces .open-next artifacts for Cloudflare
+    "build": "opennextjs-cloudflare build",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
